@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/storeSelectionFragment">
+
+    <fragment
+        android:id="@+id/storeSelectionFragment"
+        android:name="com.abid.order.ui.fragment.StoreSelectionFragment"
+        android:label="fragment_store_selection"
+        tools:layout="@layout/fragment_store_selection" >
+        <action
+            android:id="@+id/action_storeSelectionFragment_to_locationSelectionFragment"
+            app:destination="@id/locationSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationSelectionFragment"
+        android:name="com.abid.order.ui.fragment.LocationSelectionFragment"
+        android:label="fragment_location_selection"
+        tools:layout="@layout/fragment_location_selection" >
+        <action
+            android:id="@+id/action_locationSelectionFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.abid.order.ui.fragment.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+</navigation>
