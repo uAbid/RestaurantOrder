@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.MenuFragment">
 
-    <include layout="@layout/custom_action_bar" />
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tbMenuTab"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvMenuList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/actionBar" />
-
-    <androidx.viewpager.widget.ViewPager
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/tbMenuTab" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_cart"
-        android:layout_margin="@dimen/dimen_16dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true" />
-</RelativeLayout>
+        android:layout_height="match_parent" />
+</LinearLayout>
