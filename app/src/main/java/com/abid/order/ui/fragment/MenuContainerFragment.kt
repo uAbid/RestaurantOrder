@@ -5,30 +5,51 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.abid.order.R
 import com.abid.order.listeners.MenuItemClickListeners
+import com.abid.order.repository.Repository
 import com.abid.order.ui.adapter.MenuPagerAdapter
+import com.abid.order.ui.model.Item
 import com.abid.order.ui.model.Menu
 import com.abid.order.ui.model.MenuItem
+import com.abid.order.ui.model.Order
 import com.abid.order.utils.Utilities
 import kotlinx.android.synthetic.main.fragment_menu_container.*
 
 class MenuContainerFragment : Fragment(), MenuItemClickListeners {
 
-    lateinit var cart: ArrayList<MenuItem>
+    var order: Order? = null
     override fun onClick(position: Int, item: MenuItem) {
-        Toast.makeText(context, "Position $position with item $item", Toast.LENGTH_SHORT).show()
-        cart.add(item)
+        Repository.realm.executeTransaction {
+            var itemObject = order?.items?.where()?.equalTo(Item.ID, item.id)?.findFirst()
+            if (itemObject != null) {
+                itemObject.count++;
+            } else {
+                itemObject = it.createObject(Item::class.java, item.id)
+                itemObject?.count = 1;
+                order?.items?.add(itemObject)
+            }
+            var menuItem =
+                Repository.realm.where(MenuItem::class.java).equalTo(MenuItem.ID, item.id)
+                    .findFirst()
+            if (menuItem == null) {
+                menuItem = it.copyToRealm(item)
+            }
+            itemObject?.menuItem = menuItem
+        }
         updateCart()
     }
 
     private fun updateCart() {
-        if (cart.size > 0) {
+        if (order?.items != null && order?.items!!.size > 0) {
             cartCountContainer.visibility = View.VISIBLE
-            tvCartCount.text = cart.size.toString()
+            var count = 0;
+            for (item in order?.items!!) {
+                count += item.count
+            }
+            tvCartCount.text = count.toString()
         } else {
             cartCountContainer.visibility = View.GONE
         }
@@ -44,10 +65,16 @@ class MenuContainerFragment : Fragment(), MenuItemClickListeners {
     }
 
 
+    override fun onResume() {
+        super.onResume()
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        cart = arrayListOf()
+        order = Repository.instance.getCurrentOrder()
+
         val menus = arrayListOf(
             Menu(Utilities.getUniqueId(), "Chinease", MenuFragment()),
             Menu(Utilities.getUniqueId(), "Indian", MenuFragment()),
@@ -63,7 +90,8 @@ class MenuContainerFragment : Fragment(), MenuItemClickListeners {
         for (menu in menus) {
             menu.fragment.listener = this
         }
-
         fabCart.setOnClickListener { findNavController().navigate(R.id.action_menuFragment_to_cartFragment) }
+
+        updateCart()
     }
 }

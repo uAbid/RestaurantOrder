@@ -17,4 +17,5 @@
     <string name="checkout_text">Checkout</string>
     <string name="total_vat_included_text">Total (VAT included)</string>
     <string name="order_text">Order</string>
+    <string name="order_cart">Order Cart</string>
 </resources>

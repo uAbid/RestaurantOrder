@@ -65,7 +65,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="40"
-                android:background="@drawable/border_background"
                 android:fontFamily="@font/app_font"
                 android:gravity="center"
                 android:padding="@dimen/dimen_4dp"

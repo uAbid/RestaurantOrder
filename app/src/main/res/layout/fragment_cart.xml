@@ -8,11 +8,14 @@
     android:orientation="vertical"
     tools:context=".ui.fragment.CartFragment">
 
+    <include layout="@layout/custom_action_bar" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvCartList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/cvSummary" />
+        android:layout_above="@id/cvSummary"
+        android:layout_below="@id/actionBar" />
 
 
     <com.google.android.material.card.MaterialCardView
@@ -42,10 +45,10 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:fontFamily="@font/app_font"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/app_font"
                     android:padding="@dimen/dimen_10dp"
                     android:text="@string/order_text"
                     android:textColor="@color/colorBlack"
@@ -54,11 +57,11 @@
                 </TextView>
 
                 <TextView
-                    android:fontFamily="@font/app_font"
                     android:id="@+id/tvOrderTotal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/app_font"
                     android:gravity="end"
                     android:padding="@dimen/dimen_10dp"
                     android:textColor="@color/colorBlack" />
@@ -71,10 +74,10 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:fontFamily="@font/app_font"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/app_font"
                     android:padding="@dimen/dimen_10dp"
                     android:text="@string/total_vat_included_text"
                     android:textColor="@color/colorBlack"
@@ -87,8 +90,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="end"
                     android:fontFamily="@font/app_font"
+                    android:gravity="end"
                     android:padding="@dimen/dimen_10dp"
                     android:text=""
                     android:textColor="@color/colorBlack" />

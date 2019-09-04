@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.abid.order.Constants
 import com.abid.order.R
-import com.abid.order.ui.model.Order
-import com.abid.order.utils.Utilities
+import com.abid.order.repository.Repository
 import kotlinx.android.synthetic.main.fragment_store_selection.*
 
 /**
@@ -38,12 +38,24 @@ class StoreSelectionFragment : Fragment() {
         }
 
         btnOrder.setOnClickListener {
-            Order(
-                id = Utilities.getUniqueId(),
-                store = if (selectedStore == 0) "Store A" else "Store B"
-            )
-
+            var order = Repository.instance.getCurrentOrder()
+            if (order == null) {
+                order = Repository.instance.createNewOrder()
+            }
+            Repository.realm.executeTransaction {
+                order?.store= if (selectedStore==0) Constants.STORE_A else Constants.STORE_B
+            }
             findNavController().navigate(R.id.action_storeSelectionFragment_to_locationSelectionFragment)
+        }
+
+    }
+
+    private fun initData() {
+        val order = Repository.instance.getCurrentOrder()
+        if (order?.store.equals(Constants.STORE_A)) {
+            setSelectedStoreA()
+        } else if (order?.store.equals(Constants.STORE_B)) {
+            setSelectedStoreB()
         }
 
     }
@@ -55,6 +67,7 @@ class StoreSelectionFragment : Fragment() {
         } else {
             setSelectedStoreB()
         }
+        initData()
     }
 
     private fun setSelectedStoreB() {

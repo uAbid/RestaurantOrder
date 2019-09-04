@@ -16,20 +16,21 @@ class MenuAdapter(var menus: ArrayList<MenuItem>, var listener: MenuItemClickLis
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): BaseViewHolder {
         val item = menus[position]
         val viewHolder = when (item.type) {
-            ViewType.HEADER -> HeaderViewHolder(
+            ViewType.HEADER.name -> HeaderViewHolder(
                 LayoutInflater.from(parent.context).inflate(
                     R.layout.header_item,
                     parent,
                     false
                 )
             )
-            ViewType.MENU_ITEM -> ItemViewHolder(
+            ViewType.MENU_ITEM.name -> ItemViewHolder(
                 LayoutInflater.from(parent.context).inflate(
                     R.layout.menu_item,
                     parent,
                     false
                 )
             )
+            else -> return null!!
         }
         return viewHolder
     }
