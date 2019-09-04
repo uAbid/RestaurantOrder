@@ -35,5 +35,18 @@
         android:id="@+id/menuFragment"
         android:name="com.abid.order.ui.fragment.MenuContainerFragment"
         android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu_container" />
+        tools:layout="@layout/fragment_menu_container" >
+        <action
+            android:id="@+id/action_menuFragment_to_cartFragment"
+            app:destination="@id/cartFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.abid.order.ui.fragment.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>
