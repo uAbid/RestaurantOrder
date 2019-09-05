@@ -33,7 +33,6 @@ class CartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        actionBarTitle.text = getString(R.string.order_cart)
         val order = Repository.instance.getCurrentOrder()
         if (order != null) {
             cartAdapter = CartAdapter(order)

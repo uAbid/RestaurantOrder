@@ -9,5 +9,6 @@
     <color name="colorCyan">#00b8d4</color>
     <color name="colorGreen">#388e3c</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#fff</color>
+    <color name="colorGray">#808080</color>
 
 </resources>

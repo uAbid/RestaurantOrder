@@ -6,11 +6,11 @@
     android:orientation="vertical">
 
     <TextView
-        android:textSize="18sp"
-        android:fontFamily="@font/app_font"
-        android:text="@string/menu"
         android:id="@+id/actionBarTitle"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="serif"
+        android:text="@string/menu"
+        android:textSize="18sp" />
 </com.google.android.material.card.MaterialCardView>

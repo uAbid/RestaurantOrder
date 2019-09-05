@@ -3,20 +3,20 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/first"
-            android:icon="@drawable/ic_remove"
+            android:id="@+id/menu"
+            android:icon="@drawable/ic_restaurant_menu"
             android:iconTint="@color/colorAccent"
             android:title="Order Menu" />
 
         <item
-            android:id="@+id/second"
-            android:icon="@drawable/ic_delete"
+            android:id="@+id/call"
+            android:icon="@drawable/ic_call"
             android:iconTint="@color/colorAccent"
             android:title="Call" />
 
         <item
-            android:id="@+id/third"
-            android:icon="@drawable/ic_add"
+            android:id="@+id/contacts"
+            android:icon="@drawable/ic_contacts"
             android:iconTint="@color/colorAccent"
             android:title="Contact" />
 

@@ -7,14 +7,13 @@
     android:background="@color/colorWhite"
     tools:context=".ui.fragment.order.MenuContainerFragment">
 
-    <include layout="@layout/custom_action_bar" />
 
     <LinearLayout
-        android:layout_centerInParent="true"
         android:id="@+id/tabContainer"
-        android:layout_below="@id/actionBar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true">
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tbMenuTab"

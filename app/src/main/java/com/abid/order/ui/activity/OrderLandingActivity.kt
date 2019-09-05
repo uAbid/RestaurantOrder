@@ -69,11 +69,11 @@ class OrderLandingActivity : AppCompatActivity(), NavigationView.OnNavigationIte
 
         when (id) {
 
-            R.id.first -> navController.navigate(R.id.storeSelectionFragment)
+            R.id.menu -> navController.navigate(R.id.storeSelectionFragment)
 
-            R.id.second -> navController.navigate(R.id.callFragment)
+            R.id.call -> navController.navigate(R.id.callFragment)
 
-            R.id.third -> navController.navigate(R.id.contactFragment)
+            R.id.contacts -> navController.navigate(R.id.contactFragment)
         }
         return true
 

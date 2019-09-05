@@ -2,8 +2,8 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorWhite"
     android:layout_marginBottom="@dimen/dimen_1dp"
+    android:background="@color/colorWhite"
     android:orientation="horizontal"
     android:padding="@dimen/dimen_8dp">
 
@@ -53,9 +53,9 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_weight="30"
+                android:background="@drawable/circular_ripple"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="@drawable/circular_ripple"
                 android:src="@drawable/ic_add"
                 android:tint="@color/colorAccent" />
 
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="40"
-                android:fontFamily="@font/app_font"
+                android:fontFamily="serif"
                 android:gravity="center"
                 android:padding="@dimen/dimen_4dp"
                 android:text="25"
@@ -77,9 +77,9 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:layout_weight="30"
+                android:background="@drawable/circular_ripple"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="@drawable/circular_ripple"
                 android:src="@drawable/ic_remove"
                 android:tint="@color/colorAccent" />
         </LinearLayout>
@@ -99,9 +99,9 @@
             android:layout_height="match_parent"
             android:layout_weight="10"
             android:background="@drawable/circular_ripple"
-            android:padding="5dp"
             android:clickable="true"
             android:focusable="true"
+            android:padding="5dp"
             android:src="@drawable/ic_delete"
             android:tint="@color/colorAccent" />
     </LinearLayout>
