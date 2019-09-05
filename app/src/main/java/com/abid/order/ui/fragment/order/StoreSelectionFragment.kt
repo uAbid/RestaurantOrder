@@ -1,4 +1,4 @@
-package com.abid.order.ui.fragment
+package com.abid.order.ui.fragment.order
 
 
 import android.os.Bundle
@@ -11,7 +11,9 @@ import androidx.navigation.fragment.findNavController
 import com.abid.order.Constants
 import com.abid.order.R
 import com.abid.order.repository.Repository
+import com.abid.order.utils.Utilities
 import kotlinx.android.synthetic.main.fragment_store_selection.*
+
 
 /**
  * A simple [Fragment] subclass.
@@ -22,6 +24,8 @@ class StoreSelectionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_store_selection, container, false)
     }
@@ -29,6 +33,7 @@ class StoreSelectionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Utilities.setTitle(activity = activity, title = "Store Selection")
 
         tvStoreB.setOnClickListener {
             setSelectedStoreB()
@@ -49,6 +54,7 @@ class StoreSelectionFragment : Fragment() {
         }
 
     }
+
 
     private fun initData() {
         val order = Repository.instance.getCurrentOrder()

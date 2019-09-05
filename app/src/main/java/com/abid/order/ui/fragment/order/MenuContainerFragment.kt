@@ -1,4 +1,4 @@
-package com.abid.order.ui.fragment
+package com.abid.order.ui.fragment.order
 
 
 import android.os.Bundle
@@ -60,6 +60,8 @@ class MenuContainerFragment : Fragment(), MenuItemClickListeners {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Utilities.setTitle(activity,"Menu")
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_menu_container, container, false)
     }
@@ -72,17 +74,24 @@ class MenuContainerFragment : Fragment(), MenuItemClickListeners {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         order = Repository.instance.getCurrentOrder()
 
         val menus = arrayListOf(
-            Menu(Utilities.getUniqueId(), "Chinease", MenuFragment()),
+            Menu(Utilities.getUniqueId(), "Chinease",
+                MenuFragment()
+            ),
             Menu(Utilities.getUniqueId(), "Indian", MenuFragment()),
             Menu(Utilities.getUniqueId(), "Thai", MenuFragment()),
-            Menu(Utilities.getUniqueId(), "Italian", MenuFragment()),
+            Menu(Utilities.getUniqueId(), "Italian",
+                MenuFragment()
+            ),
             Menu(Utilities.getUniqueId(), "French", MenuFragment()),
-            Menu(Utilities.getUniqueId(), "Turkish", MenuFragment()),
-            Menu(Utilities.getUniqueId(), "Maxican", MenuFragment())
+            Menu(Utilities.getUniqueId(), "Turkish",
+                MenuFragment()
+            ),
+            Menu(Utilities.getUniqueId(), "Maxican",
+                MenuFragment()
+            )
         )
         pagerAdpter = MenuPagerAdapter(menus, childFragmentManager)
         menuPager.adapter = pagerAdpter

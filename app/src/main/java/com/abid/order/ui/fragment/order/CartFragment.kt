@@ -1,4 +1,4 @@
-package com.abid.order.ui.fragment
+package com.abid.order.ui.fragment.order
 
 
 import android.os.Bundle

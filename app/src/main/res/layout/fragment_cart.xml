@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:orientation="vertical"
-    tools:context=".ui.fragment.CartFragment">
+    tools:context=".ui.fragment.order.CartFragment">
 
     <include layout="@layout/custom_action_bar" />
 
