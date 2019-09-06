@@ -36,8 +36,12 @@ open class Address(
     var city: String = ""
 ) : RealmObject()
 
-open class Item(@PrimaryKey var id: String = "", var menuItem: MenuItem? = null, var count: Int = 0) :
-    RealmObject(){
+open class Item(
+    @PrimaryKey var id: String = "", var menuItem: MenuItem? = null,
+    var count: Int = 0,
+    var note: String = ""
+) :
+    RealmObject() {
     companion object {
         val ID = "id"
 

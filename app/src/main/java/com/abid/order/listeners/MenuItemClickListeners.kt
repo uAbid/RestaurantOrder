@@ -4,5 +4,5 @@ import com.abid.order.ui.model.MenuItem
 
 
 interface MenuItemClickListeners {
-    fun onClick(position: Int, item: MenuItem)
+    fun onClick(position: Int, item: MenuItem, note: String)
 }

@@ -44,12 +44,13 @@
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
+            app:icon="@drawable/ic_cart"
             android:id="@+id/btnAdd"
             android:layout_width="@dimen/dimen_0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="@dimen/dimen_10dp"
-            android:layout_weight="20"
+            android:layout_weight="30"
             android:text="$100" />
     </LinearLayout>
 

@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.abid.order.Constants
 import com.abid.order.R
 import com.abid.order.repository.Repository
 import com.abid.order.ui.adapter.CartAdapter
 import com.abid.order.ui.model.Item
 import io.realm.RealmChangeListener
 import io.realm.RealmResults
-import kotlinx.android.synthetic.main.custom_action_bar.*
 import kotlinx.android.synthetic.main.fragment_cart.*
 
 /**
@@ -42,6 +42,17 @@ class CartFragment : Fragment() {
                 adapter = cartAdapter
             }
         }
+        if (order?.deliveryType.equals(Constants.DELIVERY)) {
+            tvDelivery.textSize = 25F
+            tvPickUp.textSize = 18F
+        } else {
+            tvDelivery.textSize = 18F
+            tvPickUp.textSize = 25F
+        }
+
+        tvAddress.text =
+            "${order?.address?.streetName}, ${order?.address?.streetNumber}, ${order?.address?.city}, ${order?.address?.postCode}"
+
         items = order?.items?.where()?.findAll()
         setSummaryData(items!!)
         items?.addChangeListener(RealmChangeListener() {
@@ -60,7 +71,7 @@ class CartFragment : Fragment() {
             totalPrice += item.count * price
         }
         tvOrderTotal.text = "$totalPrice"
-        tvGrandTotal.text = "${totalPrice +(totalPrice * 0.15)}"
+        tvGrandTotal.text = "${totalPrice + (totalPrice * 0.15)}"
     }
 
     override fun onDestroy() {

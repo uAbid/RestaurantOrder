@@ -40,7 +40,7 @@ class CartAdapter(var order: Order) : RecyclerView.Adapter<CartAdapter.ViewHolde
         holder.apply {
             tvCount.text = "${item.count}"
             tvTitle.text = item.menuItem?.title
-            tvSubtitle.text = item.menuItem?.description
+            tvSubtitle.text = item.note
             tvTotalPrice.text = "${count * price}"
             ivPlus.setOnClickListener {
                 Repository.realm.executeTransaction {

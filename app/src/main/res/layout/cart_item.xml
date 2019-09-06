@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/dimen_1dp"
-    android:background="@color/colorWhite"
     android:orientation="horizontal"
     android:padding="@dimen/dimen_8dp">
 
@@ -11,98 +10,127 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
-        android:orientation="horizontal"
-        android:padding="@dimen/dimen_8dp">
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="@dimen/dimen_0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="40"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_8dp">
+
+            <LinearLayout
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="40"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_10dp"
+                    android:ellipsize="end"
+                    android:fontFamily="serif"
+                    android:maxLines="1"
+                    android:text="Title"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/textSizeTitle" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivMinus"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="30"
+                    android:background="@drawable/circular_ripple"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_remove"
+                    android:tint="@color/colorAccent" />
+
+                <TextView
+                    android:id="@+id/tvCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="40"
+                    android:fontFamily="serif"
+                    android:gravity="center"
+                    android:padding="@dimen/dimen_4dp"
+                    android:text="25"
+                    android:textColor="@color/colorBlack" />
+
+                <ImageView
+                    android:id="@+id/ivPlus"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="30"
+                    android:background="@drawable/circular_ripple"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_add"
+                    android:tint="@color/colorAccent" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="match_parent"
+                android:id="@+id/tvTotalPrice"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="20"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:textColor="@color/colorBlack" />
+
+            <ImageView
+                android:id="@+id/ivDelete"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:background="@drawable/circular_ripple"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="5dp"
+                android:src="@drawable/ic_delete"
+                android:tint="@color/colorAccent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:text="Title"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/textSizeTitle" />
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/dimen_5dp"
+                android:src="@drawable/ic_edit"
+                android:tint="@color/colorBlack" />
 
             <TextView
                 android:id="@+id/tvSubtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
+                android:layout_gravity="center"
+                android:fontFamily="serif"
                 android:text="Subtitle"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/textSizeSubTitle" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="@dimen/dimen_0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="30"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/ivPlus"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_weight="30"
-                android:background="@drawable/circular_ripple"
-                android:clickable="true"
-                android:focusable="true"
-                android:src="@drawable/ic_add"
-                android:tint="@color/colorAccent" />
-
-            <TextView
-                android:id="@+id/tvCount"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="40"
-                android:fontFamily="serif"
-                android:gravity="center"
-                android:padding="@dimen/dimen_4dp"
-                android:text="25"
-                android:textColor="@color/colorBlack" />
-
-            <ImageView
-                android:id="@+id/ivMinus"
-                android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:layout_weight="30"
-                android:background="@drawable/circular_ripple"
-                android:clickable="true"
-                android:focusable="true"
-                android:src="@drawable/ic_remove"
-                android:tint="@color/colorAccent" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvTotalPrice"
-            android:layout_width="@dimen/dimen_0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="20"
-            android:gravity="center"
-            android:textColor="@color/colorBlack" />
-
-        <ImageView
-            android:id="@+id/ivDelete"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="10"
-            android:background="@drawable/circular_ripple"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="5dp"
-            android:src="@drawable/ic_delete"
-            android:tint="@color/colorAccent" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

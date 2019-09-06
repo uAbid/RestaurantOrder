@@ -81,6 +81,10 @@ class LocationSelectionFragment : Fragment() {
             findNavController().navigate(R.id.action_locationSelectionFragment_to_menuFragment)
         } else {
             val addressDialog = AddressDialog(context, addressList, object : DialogListener {
+                override fun onConfirm(note: String) {
+
+                }
+
                 override fun onConfirm(id: Int) {
 
                 }

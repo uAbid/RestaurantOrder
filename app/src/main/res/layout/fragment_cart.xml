@@ -9,11 +9,79 @@
     tools:context=".ui.fragment.order.CartFragment">
 
 
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvDelivery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="serif"
+                android:gravity="end|center"
+                android:padding="@dimen/dimen_10dp"
+                android:text="@string/delivery_text"
+                android:textColor="@color/colorWhite" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_arrows" />
+
+            <TextView
+                android:id="@+id/tvPickUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="serif"
+                android:gravity="start|center"
+                android:padding="@dimen/dimen_10dp"
+                android:text="@string/pickup_text"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/textSizeTitle"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:background="@color/colorWhite"
+            android:backgroundTint="@color/colorWhite"
+            android:outlineAmbientShadowColor="@color/colorWhite"
+            android:padding="@dimen/dimen_16dp"
+            android:pointerIcon="text" />
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvCartList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/cvSummary" />
+        android:layout_above="@id/cvSummary"
+        android:layout_below="@id/header" />
 
 
     <com.google.android.material.card.MaterialCardView
@@ -32,7 +100,6 @@
 
             <View
                 android:layout_width="match_parent"
-
                 android:layout_height="@dimen/dimen_1dp"
                 android:background="@color/colorAccent" />
 

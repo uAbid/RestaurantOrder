@@ -24,4 +24,7 @@
     <string name="please_select_your_delivery_method">Please select your delivery method</string>
     <string name="or">OR</string>
     <string name="street_streetnumber_city_postal_code">Street, Street-number, City, Postal code</string>
+    <string name="add_notes">Add Notes</string>
+    <string name="optional">Optional</string>
+    <string name="add_to_cart">Add to Cart</string>
 </resources>

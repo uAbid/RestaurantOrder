@@ -21,7 +21,11 @@ import kotlinx.android.synthetic.main.fragment_menu_container.*
 class MenuContainerFragment : Fragment(), MenuItemClickListeners {
 
     var order: Order? = null
-    override fun onClick(position: Int, item: MenuItem) {
+    override fun onClick(
+        position: Int,
+        item: MenuItem,
+        note: String
+    ) {
         Repository.realm.executeTransaction {
             var itemObject = order?.items?.where()?.equalTo(Item.ID, item.id)?.findFirst()
             if (itemObject != null) {
@@ -38,6 +42,7 @@ class MenuContainerFragment : Fragment(), MenuItemClickListeners {
                 menuItem = it.copyToRealm(item)
             }
             itemObject?.menuItem = menuItem
+            itemObject?.note = note
         }
         updateCart()
     }
@@ -60,7 +65,7 @@ class MenuContainerFragment : Fragment(), MenuItemClickListeners {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Utilities.setTitle(activity,"Menu")
+        Utilities.setTitle(activity, "Menu")
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_menu_container, container, false)
@@ -77,19 +82,23 @@ class MenuContainerFragment : Fragment(), MenuItemClickListeners {
         order = Repository.instance.getCurrentOrder()
 
         val menus = arrayListOf(
-            Menu(Utilities.getUniqueId(), "Chinease",
+            Menu(
+                Utilities.getUniqueId(), "Chinease",
                 MenuFragment()
             ),
             Menu(Utilities.getUniqueId(), "Indian", MenuFragment()),
             Menu(Utilities.getUniqueId(), "Thai", MenuFragment()),
-            Menu(Utilities.getUniqueId(), "Italian",
+            Menu(
+                Utilities.getUniqueId(), "Italian",
                 MenuFragment()
             ),
             Menu(Utilities.getUniqueId(), "French", MenuFragment()),
-            Menu(Utilities.getUniqueId(), "Turkish",
+            Menu(
+                Utilities.getUniqueId(), "Turkish",
                 MenuFragment()
             ),
-            Menu(Utilities.getUniqueId(), "Maxican",
+            Menu(
+                Utilities.getUniqueId(), "Maxican",
                 MenuFragment()
             )
         )
